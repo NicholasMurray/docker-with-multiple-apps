@@ -1,7 +1,7 @@
 # Docker Setup for Multiple Vite Apps
 
 Assume you have two Vite projects in the following directory structure:
-
+```
 root-directory
 ├── coffee-delivery
 │ ├── Dockerfile
@@ -13,7 +13,10 @@ root-directory
 │ ├── docker-compose.yml
 │ ├── vite.config.js
 │ └── ...
-└── start-all.sh
+├── start-all.sh
+└── stop-all.sh
+
+```
 
 ## 1. Dockerfile (Per App)
 
