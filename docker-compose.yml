@@ -1,0 +1,26 @@
+# docker-compose.yml
+version: "3.8"
+services:
+  coffee-delivery:
+    build:
+      context: ./coffee-delivery
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"  # Expose coffee-delivery on port 5173
+    volumes:
+      - ./coffee-delivery:/app  # Mount coffee-delivery source code for live updates
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  food-delivery:
+    build:
+      context: ./food-delivery
+      dockerfile: Dockerfile
+    ports:
+      - "5174:5173"  # Expose food-delivery on port 5174 (maps to 5173 internally)
+    volumes:
+      - ./food-delivery:/app  # Mount food-delivery source code for live updates
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true

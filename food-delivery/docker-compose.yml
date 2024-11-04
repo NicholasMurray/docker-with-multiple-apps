@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: "3.8"
+services:
+  food-delivery:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5174:5173"  # Expose food-delivery on port 5174 (maps to 5173 internally)
+    volumes:
+      - .:/app  # Sync host directory with container for live updates
+      - /app/node_modules  # Avoid conflicts with host node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Ensure file watching works properly

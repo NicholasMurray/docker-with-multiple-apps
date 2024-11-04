@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: "3.8"
+services:
+  coffee-delivery:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"  # Expose coffee-delivery on port 5173
+    volumes:
+      - .:/app  # Sync host directory with container for live updates
+      - /app/node_modules  # Avoid conflicts with host node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true  # Ensure file watching works properly
