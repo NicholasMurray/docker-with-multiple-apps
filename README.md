@@ -1,6 +1,7 @@
 # Docker Setup for Multiple Vite Apps
 
 Assume you have two Vite projects in the following directory structure:
+
 ```
 root-directory
 ├── coffee-delivery
@@ -172,6 +173,12 @@ chmod +x stop-all.sh
 ## Stopping the Apps
 
 To stop both apps, run:
+
+```bash
+./stop-all.sh
+```
+
+or
 
 ```bash
 docker-compose down
