@@ -89,14 +89,13 @@ export default defineConfig({
     port: 5173,  // Each app will map to different external ports in docker-compose
   },
 });
-///
+```
 
 ## 4. Start Script
 
 Create a bash script start-all.sh in the root directory to start Vite apps:
 
 ```
-
 #!/bin/bash
 
 echo "Starting Vite applications..."
@@ -112,23 +111,19 @@ echo "food-delivery is running on http://localhost:5174"
 # Attach logs for apps in the foreground
 
 docker-compose logs -f coffee-delivery food-delivery
-
 ```
 
 Make the script executable:
 
 ```
-
 chmod +x start-all.sh
-
 ```
 
 ### 5. Stop script
 
 Create a bash script stop-all.sh in the root directory to stop both Vite apps:
 
-```
-
+```bash
 #!/bin/bash
 
 echo "Stopping Vite applications..."
@@ -145,14 +140,12 @@ echo "food-delivery has been stopped."
 
 docker-compose rm -f coffee-delivery food-delivery
 echo "Stopped containers for coffee-delivery and food-delivery have been removed."
-
-````
+```
 
 Make the script executable:
 
 ```bash
 chmod +x stop-all.sh
-
 ````
 
 ## Running the Apps
